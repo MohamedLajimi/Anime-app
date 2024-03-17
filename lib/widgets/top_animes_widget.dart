@@ -21,7 +21,8 @@ class _TopAnimesListState extends State<TopAnimesList> {
           return const Loader();
         }
         if (snapshot.data!=null) {
-          return const TopAnimeImageSlider(animes: [],);
+          final animes=snapshot.data!.toList();
+          return TopAnimeImageSlider(animes: animes,);
         }
         return ErrorScreen(error: snapshot.error.toString());
       },
